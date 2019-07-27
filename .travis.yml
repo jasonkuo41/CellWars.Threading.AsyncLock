@@ -15,4 +15,4 @@ matrix:
         - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
       script:
         - msbuild /p:Configuration=Release test/CellWars.Async.Tests/CellWars.Async.Tests.csproj
-        - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./test/CellWars.Async.Tests/bin/Release/CellWars.Async.Tests.dll
+        - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe test/CellWars.Async.Tests/bin/Release/CellWars.Async.Tests.dll
