@@ -1,9 +1,9 @@
 language: csharp
 solution: CellWars.Async.sln
-
-mono: 
-    - latest
-dotnet:
-    - 2.1.502
-script:
-    - dotnet restore
+matrix:
+  include:
+    - dotnet: 2.1.502
+      mono: none
+      script:
+        - dotnet restore
+    - mono: latest
