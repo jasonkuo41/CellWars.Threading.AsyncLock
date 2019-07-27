@@ -6,7 +6,7 @@ namespace CellWars.Threading {
     /// <summary>
     /// A class that allows locking in an async-await block and also providing re-entrant ability
     /// </summary>
-    public class AsyncLock {
+    public class AsyncLock : IDisposable {
         /// <summary>
         /// Provides a handle for the lock, unlocks the lock when it is disposed
         /// </summary>
@@ -99,6 +99,10 @@ namespace CellWars.Threading {
                 return new ThreadSafeHandle(this);
             }
             return EmptyHandler;
+        }
+
+        public void Dispose() {
+            _semaphore.Dispose();
         }
 
     }

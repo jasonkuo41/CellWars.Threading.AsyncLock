@@ -93,6 +93,26 @@ namespace CellWars.Threading.Tests {
         }
 
         [Fact]
+        public async Task AsyncLock_TestReentrantReal() {
+            HashSet<int> ThreadId = new HashSet<int>();
+            var Mutex = new AsyncLock();
+
+            async Task PushListAsync() {
+                using (await Mutex.LockAsync()) {
+                    await NestFuncAsync();
+                }
+            }
+
+            async Task NestFuncAsync() {
+                using (await Mutex.LockAsync()) {
+                    await CheckDuplicateThreadId(ThreadId);
+                }
+            }
+
+            await Task.WhenAll(Enumerable.Range(0, 10000).Select(x => PushListAsync()));
+        }
+
+        [Fact]
         public async Task AsyncLock_MutlipleLayerLocks() {
             HashSet<int> ThreadId = new HashSet<int>();
             HashSet<int> ThreadId1 = new HashSet<int>();
