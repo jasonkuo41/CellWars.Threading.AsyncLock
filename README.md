@@ -1,5 +1,8 @@
 
 # CellWars.Async
+
+[![Build Status](https://travis-ci.org/jasonkuo41/CellWars.Async.svg?branch=master)](https://travis-ci.org/jasonkuo41/CellWars.Async) [![netstandard 1.3](https://img.shields.io/badge/netstandard-1.3-brightgreen.svg)](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) [![netstandard 2.0](https://img.shields.io/badge/netstandard-2.0-brightgreen.svg)](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
+
 A re-entrant async lock for C#.
 
 This library originally belongs to a private repository "CellWars" and is now made public, currently only provides `AsyncLock`, which is an async-compatible `lock` in C#.

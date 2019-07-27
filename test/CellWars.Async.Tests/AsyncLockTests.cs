@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Xunit.Abstractions;
 
-namespace CellWars.Threading.Tests {
+namespace CellWars.Async.Tests {
     public class AsyncLockTests {
 
         public class RaceCoditionException : Exception { }

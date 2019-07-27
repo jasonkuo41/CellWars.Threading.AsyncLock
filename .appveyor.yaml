@@ -1,0 +1,24 @@
+version: '{build}'
+os: Visual Studio 2017
+configuration: Release
+environment:
+  COVERALLS_REPO_TOKEN: ZjzIOrSWFh5kDxJEjboIwfX5S5etazaI6CnC+Bc9Wrt6PBIWFrn1l4fxGf5TNpCw
+skip_branch_with_pr: true
+build_script:
+- ps: >-
+    ./Build.ps1
+    nuget pack nuspec/Nito.AsyncEx.nuspec
+test_script:
+- ps: ./Coverage.ps1
+artifacts:
+  - path: '*.nupkg'
+  - path: 'src\**\*.nupkg'
+    name: NuGet Packages
+  - path: 'src\**\*.snupkg'
+    name: NuGet Symbol Packages
+deploy:
+  provider: NuGet
+  api_key:
+    secure: xdjbT86eLtqeKqycWN9xlrcaGHpqOhsjxdYz+Na2EIO4l+Hl9IDi+6B66zu//T17
+  on:
+    APPVEYOR_REPO_TAG: true
