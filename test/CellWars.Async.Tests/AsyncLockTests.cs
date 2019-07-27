@@ -75,12 +75,12 @@ namespace CellWars.Threading.Tests {
             async Task PushListAsync(int number) {
                 if (number % 2 == 0) {
                     using (await Mutex.LockAsync()) {
-                        await CheckDuplicateThreadId(ThreadId);
+                        await CheckDuplicateThreadId(ThreadId).ConfigureAwait(false);
                     }
                 }
                 else {
                     using (await Mutex2.LockAsync()) {
-                        await CheckDuplicateThreadId(ThreadId1);
+                        await CheckDuplicateThreadId(ThreadId1).ConfigureAwait(false);
                     }
                 }
             }

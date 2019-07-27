@@ -28,14 +28,8 @@ namespace CellWars.Threading {
                 Source._handle.Value = this;
             }
 
-            // This code is reserved for future usage
-            private void CheckIfDisposed() {
-                if (Interlocked.CompareExchange(ref isDiposed, 1, 0) != 0)
-                    throw new ObjectDisposedException("Handle is already disposed");
-            }
-
             public void Dispose() {
-                if (Source._handle.Value == this) {
+                if (Source._handle.Value == this && Interlocked.CompareExchange(ref isDiposed, 1, 0) == 0) {
                     Source._handle.Value = null;
                     Source._semaphore.Release();
                 }
