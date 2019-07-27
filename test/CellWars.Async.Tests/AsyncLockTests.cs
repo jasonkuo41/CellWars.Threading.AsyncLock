@@ -8,15 +8,10 @@ using Xunit.Abstractions;
 
 namespace CellWars.Threading.Tests {
     public class AsyncLockTests {
-        private readonly ITestOutputHelper _testOutputHelper;
 
-        public AsyncLockTests(ITestOutputHelper testOutputHelper) {
-            _testOutputHelper = testOutputHelper;
-        }
+        public class RaceCoditionException : Exception { }
 
-        private class RaceCoditionException : Exception { }
-
-        private async Task CheckDuplicateThreadId(HashSet<int> ThreadId) {
+        private static async Task CheckDuplicateThreadId(HashSet<int> ThreadId) {
             var id = Thread.CurrentThread.ManagedThreadId;
             if (ThreadId.Contains(id)) {
                 throw new RaceCoditionException();
@@ -32,9 +27,10 @@ namespace CellWars.Threading.Tests {
             List<Task> tasks = new List<Task>();
 
             await Assert.ThrowsAsync<RaceCoditionException>(async () => {
-                for (var i = 0; i < 1000; i++)
+                for (var i = 0; i < 1000; i++) {
                     tasks.Add(CheckDuplicateThreadId(ThreadId));
-                await Task.WhenAll(tasks);
+                }
+                await Task.WhenAll(tasks).ConfigureAwait(false);
             });
         }
 
@@ -122,9 +118,9 @@ namespace CellWars.Threading.Tests {
             async Task PushListAsync(int number) {
                 using (await Mutex.LockAsync()) {
                     using (await Mutex2.LockAsync()) {
-                        await CheckDuplicateThreadId(ThreadId1);
+                        await CheckDuplicateThreadId(ThreadId1).ConfigureAwait(false);
                     }
-                    await CheckDuplicateThreadId(ThreadId);
+                    await CheckDuplicateThreadId(ThreadId).ConfigureAwait(false);
                 }
             }
 

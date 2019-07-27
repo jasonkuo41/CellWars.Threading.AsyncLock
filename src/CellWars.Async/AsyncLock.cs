@@ -13,27 +13,32 @@ namespace CellWars.Threading {
         public interface ILockHandle : IDisposable { }
 
         private class EmptyHandle : ILockHandle {
-            public void Dispose() { }
+            public void Dispose() {
+                // Doing nothing since there's no lock to be release
+            }
         }
 
         private class ThreadSafeHandle : ILockHandle {
 
             private readonly AsyncLock Source;
-            private int isDiposed = 0;
+            private int isDiposed;
 
             public ThreadSafeHandle(AsyncLock source) {
                 Source = source;
                 Source._handle.Value = this;
             }
 
-            public void Dispose() {
+            // This code is reserved for future usage
+            private void CheckIfDisposed() {
                 if (Interlocked.CompareExchange(ref isDiposed, 1, 0) != 0)
                     throw new ObjectDisposedException("Handle is already disposed");
-                if (Source._handle.Value != this)
-                    throw new InvalidOperationException("You cannot dispose this handle when executing other Task.");
+            }
 
-                Source._handle.Value = null;
-                Source._semaphore.Release();
+            public void Dispose() {
+                if (Source._handle.Value == this) {
+                    Source._handle.Value = null;
+                    Source._semaphore.Release();
+                }
             }
         }
 
@@ -60,6 +65,24 @@ namespace CellWars.Threading {
         }
 
         /// <summary>
+        /// Acquires the lock asynchronously, uses the default timeout specified in consturctor
+        /// </summary>
+        /// <returns>A one use handle for this lock, dispose it to unlock the lock</returns>
+        /// <exception cref="OperationCanceledException"></exception>
+        /// <exception cref="TimeoutException">If the specified time hits and is unable to acquire the lock</exception>
+        public Task<ILockHandle> LockAsync() => LockAsync(null, default);
+
+        /// <summary>
+        /// Acquires the lock asynchronously, uses the default timeout specified in consturctor
+        /// </summary>
+        /// <param name="timeout">The timeout to this lock, default would fallback using DefaultTimeOut</param>
+        /// <param name="ct"> The CancellationToken to cancel waiting </param>
+        /// <returns>A one use handle for this lock, dispose it to unlock the lock</returns>
+        /// <exception cref="OperationCanceledException"></exception>
+        /// <exception cref="TimeoutException">If the specified time hits and is unable to acquire the lock</exception>
+        public Task<ILockHandle> LockAsync(CancellationToken ct) => LockAsync(null, ct);
+
+        /// <summary>
         /// Acquires the lock asynchronously, uses the default timeout specified in consturctor if not specified here
         /// </summary>
         /// <param name="timeout">The timeout to this lock, default would fallback using DefaultTimeOut</param>
@@ -67,7 +90,7 @@ namespace CellWars.Threading {
         /// <returns>A one use handle for this lock, dispose it to unlock the lock</returns>
         /// <exception cref="OperationCanceledException"></exception>
         /// <exception cref="TimeoutException">If the specified time hits and is unable to acquire the lock</exception>
-        public Task<ILockHandle> LockAsync(TimeSpan? timeout = null, CancellationToken ct = default) {
+        public Task<ILockHandle> LockAsync(TimeSpan? timeout, CancellationToken ct) {
             // Checks if current handle is null
             if (_handle.Value == null) {
                 return InternalEnterAsync(timeout, new ThreadSafeHandle(this), ct);
@@ -79,11 +102,24 @@ namespace CellWars.Threading {
         // We need this function because if AsyncLocal Enters a async function, it's altered value cannot be 
         // visible from it's parent caller.
         private async Task<ILockHandle> InternalEnterAsync(TimeSpan? timeout, ILockHandle handler, CancellationToken ct) {
-            if (!await _semaphore.WaitAsync(timeout ?? DefaultTimeOut, ct))
+            if (!await _semaphore.WaitAsync(timeout ?? DefaultTimeOut, ct).ConfigureAwait(false)) {
                 throw new OperationCanceledException("Semaphore Timeout");
+            }
             return handler;
         }
 
+        /// <summary>
+        /// Acquires the lock synchronously, uses the default timeout specified in consturctor
+        /// </summary>
+        /// <returns>A one use handle for this lock, dispose it to unlock the lock</returns>
+        public ILockHandle Lock() => Lock(null, default);
+
+        /// <summary>
+        /// Acquires the lock synchronously, uses the default timeout specified in consturctor
+        /// </summary>
+        /// <param name="ct"> The CancellationToken to cancel waiting </param>
+        /// <returns>A one use handle for this lock, dispose it to unlock the lock</returns>
+        public ILockHandle Lock(CancellationToken ct) => Lock(null, ct);
 
         /// <summary>
         /// Acquires the lock synchronously, uses the default timeout specified in consturctor if not specified here
@@ -93,7 +129,7 @@ namespace CellWars.Threading {
         /// <returns>A one use handle for this lock, dispose it to unlock the lock</returns>
         /// <exception cref="OperationCanceledException"></exception>
         /// <exception cref="TimeoutException">If the specified time hits and is unable to acquire the lock</exception>
-        public ILockHandle Lock(TimeSpan? timeout = null, CancellationToken ct = default) {
+        public ILockHandle Lock(TimeSpan? timeout, CancellationToken ct) {
             if (_handle.Value == null) {
                 _semaphore.Wait(timeout ?? DefaultTimeOut, ct);
                 return new ThreadSafeHandle(this);
