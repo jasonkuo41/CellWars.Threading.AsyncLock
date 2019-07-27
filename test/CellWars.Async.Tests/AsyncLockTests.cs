@@ -30,7 +30,7 @@ namespace CellWars.Threading.Tests {
                 for (var i = 0; i < 1000; i++) {
                     tasks.Add(CheckDuplicateThreadId(ThreadId));
                 }
-                await Task.WhenAll(tasks).ConfigureAwait(false);
+                await Task.WhenAll(tasks);
             });
         }
 
@@ -75,12 +75,12 @@ namespace CellWars.Threading.Tests {
             async Task PushListAsync(int number) {
                 if (number % 2 == 0) {
                     using (await Mutex.LockAsync()) {
-                        await CheckDuplicateThreadId(ThreadId).ConfigureAwait(false);
+                        await CheckDuplicateThreadId(ThreadId);
                     }
                 }
                 else {
                     using (await Mutex2.LockAsync()) {
-                        await CheckDuplicateThreadId(ThreadId1).ConfigureAwait(false);
+                        await CheckDuplicateThreadId(ThreadId1);
                     }
                 }
             }
@@ -118,9 +118,9 @@ namespace CellWars.Threading.Tests {
             async Task PushListAsync(int number) {
                 using (await Mutex.LockAsync()) {
                     using (await Mutex2.LockAsync()) {
-                        await CheckDuplicateThreadId(ThreadId1).ConfigureAwait(false);
+                        await CheckDuplicateThreadId(ThreadId1);
                     }
-                    await CheckDuplicateThreadId(ThreadId).ConfigureAwait(false);
+                    await CheckDuplicateThreadId(ThreadId);
                 }
             }
 
