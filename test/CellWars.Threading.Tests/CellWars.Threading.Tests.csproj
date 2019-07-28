@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\CellWars.Async\CellWars.Threading.csproj" />
+    <ProjectReference Include="..\..\src\CellWars.Threading\CellWars.Threading.csproj" />
   </ItemGroup>
 
 </Project>

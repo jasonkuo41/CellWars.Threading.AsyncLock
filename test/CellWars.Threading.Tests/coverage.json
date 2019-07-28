@@ -1,0 +1,1992 @@
+{
+  "CellWars.Async.dll": {
+    "C:\\Users\\Jason Kuo\\source\\repos\\CellWars.Async\\src\\CellWars.Async\\AsyncLock.cs": {
+      "CellWars.Threading.AsyncLock": {
+        "System.TimeSpan CellWars.Threading.AsyncLock::get_DefaultTimeOut()": {
+          "Lines": {
+            "46": 60007
+          },
+          "Branches": []
+        },
+        "System.Threading.Tasks.Task`1<CellWars.Threading.AsyncLock/ILockHandle> CellWars.Threading.AsyncLock::LockAsync()": {
+          "Lines": {
+            "67": 80000
+          },
+          "Branches": []
+        },
+        "System.Threading.Tasks.Task`1<CellWars.Threading.AsyncLock/ILockHandle> CellWars.Threading.AsyncLock::LockAsync(System.Threading.CancellationToken)": {
+          "Lines": {
+            "77": 0
+          },
+          "Branches": []
+        },
+        "System.Threading.Tasks.Task`1<CellWars.Threading.AsyncLock/ILockHandle> CellWars.Threading.AsyncLock::LockAsync(System.Nullable`1<System.TimeSpan>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "87": 80000,
+            "89": 140000,
+            "90": 60000,
+            "93": 20000,
+            "94": 80000
+          },
+          "Branches": [
+            {
+              "Line": 89,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 60000
+            },
+            {
+              "Line": 89,
+              "Offset": 17,
+              "EndOffset": 37,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 20000
+            }
+          ]
+        },
+        "CellWars.Threading.AsyncLock/ILockHandle CellWars.Threading.AsyncLock::Lock()": {
+          "Lines": {
+            "109": 0
+          },
+          "Branches": []
+        },
+        "CellWars.Threading.AsyncLock/ILockHandle CellWars.Threading.AsyncLock::Lock(System.Threading.CancellationToken)": {
+          "Lines": {
+            "116": 0
+          },
+          "Branches": []
+        },
+        "CellWars.Threading.AsyncLock/ILockHandle CellWars.Threading.AsyncLock::Lock(System.Nullable`1<System.TimeSpan>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "131": 0,
+            "132": 0
+          },
+          "Branches": [
+            {
+              "Line": 127,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 128,
+              "Offset": 35,
+              "EndOffset": 37,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 128,
+              "Offset": 35,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 127,
+              "Offset": 17,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void CellWars.Threading.AsyncLock::Dispose()": {
+          "Lines": {
+            "134": 0,
+            "135": 0,
+            "136": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Threading.AsyncLock::.ctor()": {
+          "Lines": {
+            "39": 7,
+            "40": 7,
+            "51": 21
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Threading.AsyncLock::.ctor(System.TimeSpan)": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "59": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Threading.AsyncLock::.cctor()": {
+          "Lines": {
+            "41": 1
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Threading.AsyncLock/EmptyHandle": {
+        "System.Void CellWars.Threading.AsyncLock/EmptyHandle::Dispose()": {
+          "Lines": {
+            "16": 20000,
+            "18": 20000
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Threading.AsyncLock/ThreadSafeHandle": {
+        "System.Void CellWars.Threading.AsyncLock/ThreadSafeHandle::Dispose()": {
+          "Lines": {
+            "31": 60000,
+            "32": 120000,
+            "33": 60000,
+            "34": 60000,
+            "35": 60000,
+            "36": 60000
+          },
+          "Branches": [
+            {
+              "Line": 32,
+              "Offset": 18,
+              "EndOffset": 20,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 60000
+            },
+            {
+              "Line": 32,
+              "Offset": 18,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 41,
+              "EndOffset": 43,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 60000
+            },
+            {
+              "Line": 32,
+              "Offset": 41,
+              "EndOffset": 80,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 60000
+            }
+          ]
+        },
+        "System.Void CellWars.Threading.AsyncLock/ThreadSafeHandle::.ctor(CellWars.Threading.AsyncLock)": {
+          "Lines": {
+            "26": 120000,
+            "27": 60000,
+            "28": 60000,
+            "29": 60000
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Threading.AsyncLock/<InternalEnterAsync>d__14": {
+        "System.Void CellWars.Threading.AsyncLock/<InternalEnterAsync>d__14::MoveNext()": {
+          "Lines": {
+            "98": 60000,
+            "99": 60000,
+            "100": 0,
+            "102": 60000,
+            "103": 60000
+          },
+          "Branches": [
+            {
+              "Line": 99,
+              "Offset": 41,
+              "EndOffset": 43,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 60000
+            },
+            {
+              "Line": 99,
+              "Offset": 97,
+              "EndOffset": 99,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 49993
+            },
+            {
+              "Line": 99,
+              "Offset": 97,
+              "EndOffset": 164,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 60000
+            },
+            {
+              "Line": 99,
+              "Offset": 188,
+              "EndOffset": 202,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 60000
+            }
+          ]
+        }
+      },
+      "CellWars.Threading.AsyncLock`1": {
+        "TValue CellWars.Threading.AsyncLock`1::AcquireField(System.Func`2<T,TValue>)": {
+          "Lines": {
+            "170": 0
+          },
+          "Branches": []
+        },
+        "TValue CellWars.Threading.AsyncLock`1::AcquireField(System.Func`2<T,TValue>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "179": 0
+          },
+          "Branches": []
+        },
+        "TValue CellWars.Threading.AsyncLock`1::AcquireField(System.Func`2<T,TValue>,System.Nullable`1<System.TimeSpan>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Threading.AsyncLock`1::SetField(System.Func`2<T,TValue>,System.Action`1<TValue>)": {
+          "Lines": {
+            "206": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Threading.AsyncLock`1::SetField(System.Func`2<T,TValue>,System.Action`1<TValue>,System.Nullable`1<System.TimeSpan>)": {
+          "Lines": {
+            "215": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Threading.AsyncLock`1::SetField(System.Func`2<T,TValue>,System.Action`1<TValue>,System.Nullable`1<System.TimeSpan>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "233": 0,
+            "234": 0,
+            "235": 0,
+            "236": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Threading.AsyncLock`1::.ctor(T)": {
+          "Lines": {
+            "151": 0,
+            "152": 0,
+            "153": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Threading.AsyncLock`1::.ctor(T,System.TimeSpan)": {
+          "Lines": {
+            "160": 0,
+            "161": 0,
+            "162": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "CellWars.Extension.dll": {
+    "C:\\Users\\Jason Kuo\\Documents\\CellWars\\CellWars.Extension\\Performance\\CPU.cs": {
+      "CellWars.Platform": {
+        "System.Boolean CellWars.Platform::get_Windows()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean CellWars.Platform::get_Linux()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Performance.CPU": {
+        "CellWars.Performance.CPU/PerformanceReport CellWars.Performance.CPU::LastUsage()": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0
+          },
+          "Branches": []
+        },
+        "CellWars.Performance.CPU/PerformanceReport CellWars.Performance.CPU::Usage()": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "49": 0,
+            "50": 0
+          },
+          "Branches": [
+            {
+              "Line": 30,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 30,
+              "Offset": 13,
+              "EndOffset": 21,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 36,
+              "Offset": 159,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 37,
+              "Offset": 95,
+              "EndOffset": 97,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 100,
+              "EndOffset": 102,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 100,
+              "EndOffset": 108,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 113,
+              "EndOffset": 115,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 113,
+              "EndOffset": 128,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 37,
+              "Offset": 95,
+              "EndOffset": 146,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 36,
+              "Offset": 159,
+              "EndOffset": 161,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\Jason Kuo\\Documents\\CellWars\\CellWars.Extension\\Utility\\AsyncLock.cs": {
+      "CellWars.Utility.AsyncLock": {
+        "System.TimeSpan CellWars.Utility.AsyncLock::get_DefaultTimeOut()": {
+          "Lines": {
+            "40": 0
+          },
+          "Branches": []
+        },
+        "CellWars.Utility.AsyncLock/ILockHandle CellWars.Utility.AsyncLock::get_CurrentHandle()": {
+          "Lines": {
+            "41": 0
+          },
+          "Branches": []
+        },
+        "System.Threading.Tasks.Task`1<CellWars.Utility.AsyncLock/ILockHandle> CellWars.Utility.AsyncLock::LockAsync(System.Nullable`1<System.TimeSpan>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "51": 0,
+            "53": 0,
+            "54": 0,
+            "57": 0,
+            "58": 0
+          },
+          "Branches": [
+            {
+              "Line": 53,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 17,
+              "EndOffset": 37,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "CellWars.Utility.AsyncLock/ILockHandle CellWars.Utility.AsyncLock::Lock(System.Nullable`1<System.TimeSpan>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "78": 0,
+            "79": 0
+          },
+          "Branches": [
+            {
+              "Line": 74,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 75,
+              "Offset": 35,
+              "EndOffset": 37,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 75,
+              "Offset": 35,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 74,
+              "Offset": 17,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void CellWars.Utility.AsyncLock::.ctor()": {
+          "Lines": {
+            "36": 0,
+            "37": 0,
+            "43": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Utility.AsyncLock::.ctor(System.TimeSpan)": {
+          "Lines": {
+            "44": 0,
+            "45": 0,
+            "46": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Utility.AsyncLock::.cctor()": {
+          "Lines": {
+            "38": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.AsyncLock/EmptyHandle": {
+        "System.Void CellWars.Utility.AsyncLock/EmptyHandle::Dispose()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.AsyncLock/ThreadSafeHandle": {
+        "System.Void CellWars.Utility.AsyncLock/ThreadSafeHandle::Dispose()": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0
+          },
+          "Branches": [
+            {
+              "Line": 26,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 19,
+              "EndOffset": 32,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 28,
+              "Offset": 56,
+              "EndOffset": 58,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 28,
+              "Offset": 56,
+              "EndOffset": 69,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void CellWars.Utility.AsyncLock/ThreadSafeHandle::.ctor(CellWars.Utility.AsyncLock)": {
+          "Lines": {
+            "18": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.AsyncLock/<InternalEnterAsync>d__14": {
+        "System.Void CellWars.Utility.AsyncLock/<InternalEnterAsync>d__14::MoveNext()": {
+          "Lines": {
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "66": 0,
+            "67": 0
+          },
+          "Branches": [
+            {
+              "Line": 63,
+              "Offset": 41,
+              "EndOffset": 43,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 41,
+              "EndOffset": 56,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 87,
+              "EndOffset": 89,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 87,
+              "EndOffset": 154,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 178,
+              "EndOffset": 180,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 178,
+              "EndOffset": 191,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.AsyncLock`1": {
+        "TValue CellWars.Utility.AsyncLock`1::AcquireField(System.Func`2<T,TValue>,System.Nullable`1<System.TimeSpan>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Utility.AsyncLock`1::SetField(System.Func`2<T,TValue>,System.Action`1<TValue>,System.Nullable`1<System.TimeSpan>,System.Threading.CancellationToken)": {
+          "Lines": {
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Utility.AsyncLock`1::.ctor(T)": {
+          "Lines": {
+            "87": 0,
+            "88": 0,
+            "89": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Utility.AsyncLock`1::.ctor(T,System.TimeSpan)": {
+          "Lines": {
+            "91": 0,
+            "92": 0,
+            "93": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Jason Kuo\\Documents\\CellWars\\CellWars.Extension\\Utility\\NLogUtility.cs": {
+      "CellWars.Utility.NLogUtility": {
+        "System.Void CellWars.Utility.NLogUtility::Setup(NLog.LogLevel)": {
+          "Lines": {
+            "6": 0,
+            "7": 0,
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "64": 0,
+            "65": 0
+          },
+          "Branches": [
+            {
+              "Line": 41,
+              "Offset": 506,
+              "EndOffset": 410,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 41,
+              "Offset": 506,
+              "EndOffset": 508,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\Jason Kuo\\Documents\\CellWars\\CellWars.Extension\\Utility\\RandomString.cs": {
+      "CellWars.Utility.RandomString": {
+        "System.Collections.Generic.IReadOnlyList`1<System.Char> CellWars.Utility.RandomString::CharacterCollection(CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "40": 0,
+            "42": 0
+          },
+          "Branches": [
+            {
+              "Line": 35,
+              "Offset": 6,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 35,
+              "Offset": 6,
+              "EndOffset": 33,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 35,
+              "Offset": 6,
+              "EndOffset": 41,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 35,
+              "Offset": 6,
+              "EndOffset": 41,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "CellWars.Utility.IRandomProvider CellWars.Utility.RandomString::get_DefaultProvider()": {
+          "Lines": {
+            "44": 0
+          },
+          "Branches": []
+        },
+        "CellWars.Utility.IRandomProvider CellWars.Utility.RandomString::get_StrongProvider()": {
+          "Lines": {
+            "45": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.RandomString::Get(System.Int32,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "47": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.RandomString::Get(System.Int32,CellWars.Utility.IRandomProvider,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "48": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.RandomString::GetStrong(System.Int32,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "49": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.RandomString::Get(System.Int32,System.Int32,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "54": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.RandomString::Get(System.Int32,System.Int32,System.Random,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "58": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.RandomString::GetStrong(System.Int32,System.Int32,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "62": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.RandomString::Get(System.Int32,System.Int32,CellWars.Utility.IRandomProvider,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0
+          },
+          "Branches": [
+            {
+              "Line": 67,
+              "Offset": 69,
+              "EndOffset": 27,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 67,
+              "Offset": 69,
+              "EndOffset": 71,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void CellWars.Utility.RandomString::.cctor()": {
+          "Lines": {
+            "30": 0,
+            "31": 0,
+            "32": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.RandomString/DefaultRandomProvider": {
+        "System.Int32 CellWars.Utility.RandomString/DefaultRandomProvider::Next(System.Int32,System.Int32)": {
+          "Lines": {
+            "23": 0,
+            "24": 0,
+            "25": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Utility.RandomString/DefaultRandomProvider::.ctor()": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Void CellWars.Utility.RandomString/DefaultRandomProvider::.ctor(System.Random)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Jason Kuo\\Documents\\CellWars\\CellWars.Extension\\Utility\\StrongRandom.cs": {
+      "CellWars.Utility.StrongRandom": {
+        "CellWars.Utility.IRandomProvider CellWars.Utility.StrongRandom::get_RandomProvider()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 CellWars.Utility.StrongRandom::Next()": {
+          "Lines": {
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": [
+            {
+              "Line": 26,
+              "Offset": 35,
+              "EndOffset": 37,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 35,
+              "EndOffset": 40,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 CellWars.Utility.StrongRandom::Next(System.Int32)": {
+          "Lines": {
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0
+          },
+          "Branches": [
+            {
+              "Line": 37,
+              "Offset": 41,
+              "EndOffset": 43,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 37,
+              "Offset": 41,
+              "EndOffset": 46,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 CellWars.Utility.StrongRandom::Next(System.Int32,System.Int32)": {
+          "Lines": {
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.StrongRandom::String(System.Int32,System.Int32,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "50": 0,
+            "51": 0,
+            "52": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.StrongRandom::String(System.Int32,CellWars.Utility.RandomString/StringOptions)": {
+          "Lines": {
+            "54": 0,
+            "55": 0,
+            "56": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.StrongRandom::String(System.Int32,CellWars.Utility.StrongRandom/Options)": {
+          "Lines": {
+            "60": 0
+          },
+          "Branches": []
+        },
+        "System.String CellWars.Utility.StrongRandom::String(System.Int32,System.Int32,CellWars.Utility.StrongRandom/Options)": {
+          "Lines": {
+            "62": 0,
+            "63": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "69": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0
+          },
+          "Branches": [
+            {
+              "Line": 65,
+              "Offset": 14,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 65,
+              "Offset": 14,
+              "EndOffset": 46,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 65,
+              "Offset": 14,
+              "EndOffset": 59,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 65,
+              "Offset": 14,
+              "EndOffset": 59,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 72,
+              "Offset": 121,
+              "EndOffset": 85,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 72,
+              "Offset": 121,
+              "EndOffset": 123,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void CellWars.Utility.StrongRandom::.cctor()": {
+          "Lines": {
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.StrongRandom/StrongRandomProvider": {
+        "System.Int32 CellWars.Utility.StrongRandom/StrongRandomProvider::Next(System.Int32,System.Int32)": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "CellWars.Utility.Tests.dll": {
+    "C:\\Users\\Jason Kuo\\Documents\\CellWars\\CellWars.Utility.Tests\\obj\\Debug\\netcoreapp2.1\\CellWars.Utility.Tests.Program.cs": {
+      "AutoGeneratedProgram": {
+        "System.Void AutoGeneratedProgram::Main(System.String[])": {
+          "Lines": {
+            "4": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Jason Kuo\\Documents\\CellWars\\CellWars.Utility.Tests\\UnitTest1.cs": {
+      "CellWars.Utility.Tests.AsyncLockTests": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests::.ctor(Xunit.Abstractions.ITestOutputHelper)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<CheckDuplicateThreadId>d__3": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<CheckDuplicateThreadId>d__3::MoveNext()": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": [
+            {
+              "Line": 22,
+              "Offset": 50,
+              "EndOffset": 52,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 50,
+              "EndOffset": 59,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 98,
+              "EndOffset": 100,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 26,
+              "Offset": 98,
+              "EndOffset": 165,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass4_0/<<PreTestRaceConditionTest>b__0>d": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass4_0/<<PreTestRaceConditionTest>b__0>d::MoveNext()": {
+          "Lines": {
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0
+          },
+          "Branches": [
+            {
+              "Line": 35,
+              "Offset": 8,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 36,
+              "Offset": 102,
+              "EndOffset": 27,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 36,
+              "Offset": 102,
+              "EndOffset": 104,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 133,
+              "EndOffset": 135,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 35,
+              "Offset": 8,
+              "EndOffset": 172,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 133,
+              "EndOffset": 200,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<PreTestRaceConditionTest>d__4": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<PreTestRaceConditionTest>d__4::MoveNext()": {
+          "Lines": {
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "40": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass5_0": {
+        "System.Threading.Tasks.Task CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass5_0::<AsyncLock_BasicReq>b__1(System.Int32)": {
+          "Lines": {
+            "53": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass5_0/<<AsyncLock_BasicReq>g__PushListAsync|0>d": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass5_0/<<AsyncLock_BasicReq>g__PushListAsync|0>d::MoveNext()": {
+          "Lines": {
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0
+          },
+          "Branches": [
+            {
+              "Line": 47,
+              "Offset": 8,
+              "EndOffset": 12,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 47,
+              "Offset": 14,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 48,
+              "Offset": 73,
+              "EndOffset": 75,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 47,
+              "Offset": 8,
+              "EndOffset": 115,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 48,
+              "Offset": 73,
+              "EndOffset": 143,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 47,
+              "Offset": 14,
+              "EndOffset": 175,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 48,
+              "Offset": 178,
+              "EndOffset": 184,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 226,
+              "EndOffset": 228,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 48,
+              "Offset": 178,
+              "EndOffset": 266,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 226,
+              "EndOffset": 295,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<AsyncLock_BasicReq>d__5": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<AsyncLock_BasicReq>d__5::MoveNext()": {
+          "Lines": {
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "54": 0
+          },
+          "Branches": [
+            {
+              "Line": 53,
+              "Offset": 130,
+              "EndOffset": 132,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 130,
+              "EndOffset": 196,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass6_0": {
+        "System.Threading.Tasks.Task CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass6_0::<AsyncLock_TestReentrant>b__1(System.Int32)": {
+          "Lines": {
+            "69": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass6_0/<<AsyncLock_TestReentrant>g__PushListAsync|0>d": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass6_0/<<AsyncLock_TestReentrant>g__PushListAsync|0>d::MoveNext()": {
+          "Lines": {
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0
+          },
+          "Branches": [
+            {
+              "Line": 61,
+              "Offset": 8,
+              "EndOffset": 12,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 16,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 75,
+              "EndOffset": 77,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 8,
+              "EndOffset": 117,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 75,
+              "EndOffset": 145,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 16,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 180,
+              "EndOffset": 184,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 186,
+              "EndOffset": 197,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 246,
+              "EndOffset": 248,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 180,
+              "EndOffset": 289,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 246,
+              "EndOffset": 318,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 62,
+              "Offset": 186,
+              "EndOffset": 350,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 353,
+              "EndOffset": 359,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 64,
+              "Offset": 401,
+              "EndOffset": 403,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 353,
+              "EndOffset": 444,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 64,
+              "Offset": 401,
+              "EndOffset": 473,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<AsyncLock_TestReentrant>d__6": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<AsyncLock_TestReentrant>d__6::MoveNext()": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "70": 0
+          },
+          "Branches": [
+            {
+              "Line": 69,
+              "Offset": 130,
+              "EndOffset": 132,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 69,
+              "Offset": 130,
+              "EndOffset": 196,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass7_0": {
+        "System.Threading.Tasks.Task CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass7_0::<AsyncLock_MutlipleLocks>b__1(System.Int32)": {
+          "Lines": {
+            "92": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass7_0/<<AsyncLock_MutlipleLocks>g__PushListAsync|0>d": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass7_0/<<AsyncLock_MutlipleLocks>g__PushListAsync|0>d::MoveNext()": {
+          "Lines": {
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0
+          },
+          "Branches": [
+            {
+              "Line": 80,
+              "Offset": 8,
+              "EndOffset": 48,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 62,
+              "EndOffset": 67,
+              "Path": 0,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 82,
+              "Offset": 116,
+              "EndOffset": 118,
+              "Path": 0,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 80,
+              "Offset": 8,
+              "EndOffset": 158,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 82,
+              "Offset": 116,
+              "EndOffset": 186,
+              "Path": 1,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 80,
+              "Offset": 8,
+              "EndOffset": 218,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 82,
+              "Offset": 221,
+              "EndOffset": 227,
+              "Path": 0,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 83,
+              "Offset": 269,
+              "EndOffset": 271,
+              "Path": 0,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 82,
+              "Offset": 221,
+              "EndOffset": 312,
+              "Path": 1,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 83,
+              "Offset": 269,
+              "EndOffset": 341,
+              "Path": 1,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 62,
+              "EndOffset": 390,
+              "Path": 1,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 440,
+              "EndOffset": 442,
+              "Path": 0,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 80,
+              "Offset": 8,
+              "EndOffset": 483,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 440,
+              "EndOffset": 512,
+              "Path": 1,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 80,
+              "Offset": 8,
+              "EndOffset": 544,
+              "Path": 4,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 547,
+              "EndOffset": 553,
+              "Path": 0,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 87,
+              "Offset": 595,
+              "EndOffset": 597,
+              "Path": 0,
+              "Ordinal": 17,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 547,
+              "EndOffset": 635,
+              "Path": 1,
+              "Ordinal": 16,
+              "Hits": 0
+            },
+            {
+              "Line": 87,
+              "Offset": 595,
+              "EndOffset": 664,
+              "Path": 1,
+              "Ordinal": 18,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<AsyncLock_MutlipleLocks>d__7": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<AsyncLock_MutlipleLocks>d__7::MoveNext()": {
+          "Lines": {
+            "73": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "93": 0
+          },
+          "Branches": [
+            {
+              "Line": 92,
+              "Offset": 162,
+              "EndOffset": 164,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 92,
+              "Offset": 162,
+              "EndOffset": 228,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass8_0": {
+        "System.Threading.Tasks.Task CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass8_0::<AsyncLock_MutlipleLayerLocks>b__1(System.Int32)": {
+          "Lines": {
+            "111": 0
+          },
+          "Branches": []
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass8_0/<<AsyncLock_MutlipleLayerLocks>g__PushListAsync|0>d": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<>c__DisplayClass8_0/<<AsyncLock_MutlipleLayerLocks>g__PushListAsync|0>d::MoveNext()": {
+          "Lines": {
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0
+          },
+          "Branches": [
+            {
+              "Line": 102,
+              "Offset": 8,
+              "EndOffset": 12,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 102,
+              "Offset": 16,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 103,
+              "Offset": 75,
+              "EndOffset": 77,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 102,
+              "Offset": 8,
+              "EndOffset": 117,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 103,
+              "Offset": 75,
+              "EndOffset": 145,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 102,
+              "Offset": 16,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 103,
+              "Offset": 181,
+              "EndOffset": 212,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 104,
+              "Offset": 261,
+              "EndOffset": 263,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 103,
+              "Offset": 181,
+              "EndOffset": 304,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 104,
+              "Offset": 261,
+              "EndOffset": 333,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 103,
+              "Offset": 181,
+              "EndOffset": 365,
+              "Path": 2,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 104,
+              "Offset": 368,
+              "EndOffset": 374,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 105,
+              "Offset": 416,
+              "EndOffset": 418,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 104,
+              "Offset": 368,
+              "EndOffset": 459,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 105,
+              "Offset": 416,
+              "EndOffset": 488,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 107,
+              "Offset": 572,
+              "EndOffset": 574,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 0
+            },
+            {
+              "Line": 103,
+              "Offset": 181,
+              "EndOffset": 612,
+              "Path": 3,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 107,
+              "Offset": 572,
+              "EndOffset": 641,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CellWars.Utility.Tests.AsyncLockTests/<AsyncLock_MutlipleLayerLocks>d__8": {
+        "System.Void CellWars.Utility.Tests.AsyncLockTests/<AsyncLock_MutlipleLayerLocks>d__8::MoveNext()": {
+          "Lines": {
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "112": 0
+          },
+          "Branches": [
+            {
+              "Line": 111,
+              "Offset": 162,
+              "EndOffset": 164,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 111,
+              "Offset": 162,
+              "EndOffset": 228,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}
