@@ -1,5 +1,5 @@
 language: csharp
-solution: CellWars.Async.sln
+solution: CellWars.Threading.sln
 matrix:
   include:
     - dotnet: 2.1.502
@@ -8,5 +8,5 @@ matrix:
         - dotnet restore
       script:
         - dotnet build
-        - dotnet test test/CellWars.Async.Tests/CellWars.Async.Tests.csproj
+        - dotnet test test/CellWars.Threading.Tests/CellWars.Threading.Tests.csproj
     - mono: latest
