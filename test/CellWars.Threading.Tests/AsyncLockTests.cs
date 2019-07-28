@@ -127,5 +127,43 @@ namespace CellWars.Threading.Tests {
 
             await Task.WhenAll(Enumerable.Range(0, 10000).Select(x => PushListAsync(x)));
         }
+
+        [Fact]
+        public async Task AsyncLock_MixLocks() {
+            HashSet<int> ThreadId = new HashSet<int>();
+            var Mutex = new AsyncLock();
+
+            async Task PushListAsync() {
+                using (Mutex.Lock()) {
+                    using (await Mutex.LockAsync()) {
+                        await CheckDuplicateThreadId(ThreadId);
+                    }
+                }
+            }
+
+            await Task.WhenAll(Enumerable.Range(0, 10000).Select(x => PushListAsync()));
+        }
+
+        [Fact]
+        public async Task AsyncLock_MultiLockMix() {
+            HashSet<int> ThreadId = new HashSet<int>();
+            var Mutex = new AsyncLock(TimeSpan.FromSeconds(10));
+            var Mutex1 = new AsyncLock(TimeSpan.FromSeconds(10));
+
+            async Task PushListAsync() {
+                using (Mutex.Lock()) {
+                    using (await Mutex1.LockAsync()) {
+                        await CheckDuplicateThreadId(ThreadId);
+                    }
+                }
+                using (Mutex1.Lock()) {
+                    using (await Mutex.LockAsync()) {
+                        await CheckDuplicateThreadId(ThreadId);
+                    }
+                }
+            }
+
+            await Task.WhenAll(Enumerable.Range(0, 10).Select(x => PushListAsync()));
+        }
     }
 }
