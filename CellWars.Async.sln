@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CellWars.Async", "src\CellWars.Async\CellWars.Async.csproj", "{B3C8DCFF-4693-4C33-909B-D188DAF163B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CellWars.Threading", "src\CellWars.Async\CellWars.Threading.csproj", "{B3C8DCFF-4693-4C33-909B-D188DAF163B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CellWars.Async.Tests", "test\CellWars.Async.Tests\CellWars.Async.Tests.csproj", "{80C3DE5D-DDCE-4D69-ADA6-E6B7C8298A66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CellWars.Threading.Tests", "test\CellWars.Async.Tests\CellWars.Threading.Tests.csproj", "{80C3DE5D-DDCE-4D69-ADA6-E6B7C8298A66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C437D4A-CD43-4DD5-86C7-3DD1FA3786F1}"
 	ProjectSection(SolutionItems) = preProject

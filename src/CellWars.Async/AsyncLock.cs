@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CellWars.Async {
+namespace CellWars.Threading {
     /// <summary>
     /// A class that allows locking in an async-await block and also providing re-entrant ability
     /// </summary>

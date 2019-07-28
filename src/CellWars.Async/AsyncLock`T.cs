@@ -1,9 +1,10 @@
-﻿using System;
+﻿using CellWars.Threading;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace CellWars.Async {
+namespace CellWars.Threading {
 
     /// <summary>
     /// A class that allows locking in an async-await block and also providing re-entrant ability, with some helper functions
