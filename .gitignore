@@ -342,4 +342,4 @@ healthchecksdb
 /test/CellWars.Threading.Tests/coverage.opencover.xml
 
 # Temp Exclude from Build
-/src/CellWars.Threading/AsyncLock`T.cs
+/src/CellWars.Threading/AsyncLock[T].cs
