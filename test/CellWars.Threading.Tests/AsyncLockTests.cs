@@ -179,23 +179,22 @@ namespace CellWars.Threading.Tests {
             var Mutex = new AsyncLock(TimeSpan.FromMilliseconds(100));
 
             await Assert.ThrowsAsync<TimeoutException>(async () => {
-                var task1 = Task.Run(async () => {
+                async Task TimeoutMutexAsync() {
                     using (await Mutex.LockAsync()) {
-                        await Task.Delay(200);
+                        await Task.Delay(1000);
                     }
-                });
-                await Task.Yield();
-                // This task should throw exception
-                await Task.Run(async () => {
+                };
+                async Task ThrowAsync() {
                     using (await Mutex.LockAsync()) {
                         await Task.Yield();
                     }
-                });
-                await task1;
+                }
+
+                var task1 = TimeoutMutexAsync();
+                var task2 = ThrowAsync();
+                await Task.WhenAll(task1, task2);
             });
 
-            // I'm lazy, but this works anyway
-            await Task.Delay(300);
             async Task PushListAsync() {
                 using (await Mutex.LockAsync()) {
                     await CheckDuplicateThreadId(ThreadId);
