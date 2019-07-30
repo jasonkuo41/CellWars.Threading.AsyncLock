@@ -54,6 +54,7 @@ namespace CellWars.Threading.Tests {
             }
 
             await Task.WhenAll(Enumerable.Range(0, 10000).Select(x => PushListAsync()));
+            Mutex.Dispose();
         }
 
         [Fact]
