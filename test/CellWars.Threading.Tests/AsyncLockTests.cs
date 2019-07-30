@@ -137,6 +137,26 @@ namespace CellWars.Threading.Tests {
         }
 
         [Fact]
+        public async Task AsyncTask_CancellationTest() {
+            var Mutex = new AsyncLock();
+            await Assert.ThrowsAsync<OperationCanceledException>(async () => {
+
+                var ct = new CancellationTokenSource(TimeSpan.FromMilliseconds(100));
+
+                async Task ForceLock() {
+                    using (await Mutex.LockAsync(TimeSpan.FromMilliseconds(1000), ct.Token)) {
+                        await Task.Delay(3000);
+                    }
+                }
+
+                await ForceLock();
+                using (await Mutex.LockAsync(ct.Token)) {
+                }
+            });
+
+        }
+
+        [Fact]
         public async Task AsyncLock_MixLocks() {
             HashSet<int> ThreadId = new HashSet<int>();
             var Mutex = new AsyncLock();
