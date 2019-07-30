@@ -6,11 +6,18 @@ using System.Collections.Generic;
 using System.Threading;
 using Xunit.Abstractions;
 using CellWars.Threading;
+using System.Diagnostics;
 
 namespace CellWars.Threading.Tests {
     public class AsyncLockTests {
 
         public class RaceCoditionException : Exception { }
+
+        private ITestOutputHelper Out;
+
+        public AsyncLockTests(ITestOutputHelper output) {
+            Out = output;
+        }
 
         private static async Task CheckDuplicateThreadId(HashSet<int> ThreadId) {
             var id = Thread.CurrentThread.ManagedThreadId;
@@ -145,7 +152,7 @@ namespace CellWars.Threading.Tests {
         }
 
         [Fact]
-        public async Task AsyncLock_MultiLockMix() {
+        public async Task AsyncLock_MultiLockFirstSyncThenAsync() {
             HashSet<int> ThreadId = new HashSet<int>();
             var Mutex = new AsyncLock(TimeSpan.FromSeconds(10));
             var Mutex1 = new AsyncLock(TimeSpan.FromSeconds(10));
@@ -156,14 +163,45 @@ namespace CellWars.Threading.Tests {
                         await CheckDuplicateThreadId(ThreadId);
                     }
                 }
-                using (Mutex1.Lock()) {
-                    using (await Mutex.LockAsync()) {
+                using (await Mutex.LockAsync()) {
+                    using (Mutex1.Lock()) {
                         await CheckDuplicateThreadId(ThreadId);
                     }
                 }
             }
 
-            await Task.WhenAll(Enumerable.Range(0, 10).Select(x => PushListAsync()));
+            await Task.WhenAll(Enumerable.Range(0, 1000).Select(x => PushListAsync()));
+        }
+
+        [Fact]
+        public async Task AsyncLock_ThrowExceptionTestAsync() {
+            HashSet<int> ThreadId = new HashSet<int>();
+            var Mutex = new AsyncLock(TimeSpan.FromMilliseconds(100));
+
+            await Assert.ThrowsAsync<TimeoutException>(async () => {
+                var task1 = Task.Run(async () => {
+                    using (await Mutex.LockAsync()) {
+                        await Task.Delay(200);
+                    }
+                });
+                await Task.Yield();
+                // This task should throw exception
+                await Task.Run(async () => {
+                    using (await Mutex.LockAsync()) {
+                        await Task.Yield();
+                    }
+                });
+                await task1;
+            });
+
+            // I'm lazy, but this works anyway
+            await Task.Delay(300);
+            async Task PushListAsync() {
+                using (await Mutex.LockAsync()) {
+                    await CheckDuplicateThreadId(ThreadId);
+                }
+            }
+            await Task.WhenAll(Enumerable.Range(0, 1000).Select(x => PushListAsync()));
         }
     }
 }

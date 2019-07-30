@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,20 +13,33 @@ namespace CellWars.Threading {
         /// </summary>
         public interface ILockHandle : IDisposable { }
 
+        internal interface ILockHandleOwnership : ILockHandle {
+            void FailFast();
+            bool IsInvalid { get; }
+        }
+
         private class EmptyHandle : ILockHandle {
             public void Dispose() {
                 // Doing nothing since there's no lock to be release
             }
         }
 
-        private class ThreadSafeHandle : ILockHandle {
+        private class ThreadSafeHandle : ILockHandleOwnership {
 
             private readonly AsyncLock Source;
             private int isDiposed;
+            private int isFailed;
+
+            public bool IsInvalid => isFailed == 1;
 
             public ThreadSafeHandle(AsyncLock source) {
                 Source = source;
                 Source._handle.Value = this;
+            }
+
+            // Invoked if locking fails
+            public void FailFast() {
+                Interlocked.Exchange(ref isFailed, 1);
             }
 
             public void Dispose() {
@@ -37,7 +51,7 @@ namespace CellWars.Threading {
         }
 
         private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
-        private readonly AsyncLocal<ILockHandle> _handle = new AsyncLocal<ILockHandle>();
+        private readonly AsyncLocal<ILockHandleOwnership> _handle = new AsyncLocal<ILockHandleOwnership>();
         private static readonly ILockHandle EmptyHandler = new EmptyHandle();
 
         /// <summary>
@@ -86,7 +100,7 @@ namespace CellWars.Threading {
         /// <exception cref="TimeoutException">If the specified time hits and is unable to acquire the lock</exception>
         public Task<ILockHandle> LockAsync(TimeSpan? timeout, CancellationToken ct) {
             // Checks if current handle is null
-            if (_handle.Value == null) {
+            if (_handle.Value == null || _handle.Value.IsInvalid) {
                 return InternalEnterAsync(timeout, new ThreadSafeHandle(this), ct);
             }
             // If the CurrentHandle is not null, return a empty hanlder enabling re-entrant by spec
@@ -95,11 +109,16 @@ namespace CellWars.Threading {
 
         // We need this function because if AsyncLocal Enters a async function, it's altered value cannot be 
         // visible from it's parent caller.
-        private async Task<ILockHandle> InternalEnterAsync(TimeSpan? timeout, ILockHandle handler, CancellationToken ct) {
-            if (!await _semaphore.WaitAsync(timeout ?? DefaultTimeOut, ct).ConfigureAwait(false)) {
-                throw new OperationCanceledException("Semaphore Timeout");
+        private async Task<ILockHandle> InternalEnterAsync(TimeSpan? timeout, ILockHandleOwnership handler, CancellationToken ct) {
+            try {
+                if (!await _semaphore.WaitAsync(timeout ?? DefaultTimeOut, ct)) {
+                    throw new TimeoutException($"Semaphore Timeout");
+                }
+                return handler;
+            } catch {
+                handler.FailFast();
+                throw;
             }
-            return handler;
         }
 
         /// <summary>
@@ -124,8 +143,9 @@ namespace CellWars.Threading {
         /// <exception cref="OperationCanceledException"></exception>
         /// <exception cref="TimeoutException">If the specified time hits and is unable to acquire the lock</exception>
         public ILockHandle Lock(TimeSpan? timeout, CancellationToken ct) {
-            if (_handle.Value == null) {
-                _semaphore.Wait(timeout ?? DefaultTimeOut, ct);
+            if (_handle.Value == null || _handle.Value.IsInvalid) {
+                if (!_semaphore.Wait(timeout ?? DefaultTimeOut, ct))
+                    throw new TimeoutException($"Semaphore Timeout");
                 return new ThreadSafeHandle(this);
             }
             return EmptyHandler;
