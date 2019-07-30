@@ -111,7 +111,7 @@ namespace CellWars.Threading {
         // visible from it's parent caller.
         private async Task<ILockHandle> InternalEnterAsync(TimeSpan? timeout, ILockHandleOwnership handler, CancellationToken ct) {
             try {
-                if (!await _semaphore.WaitAsync(timeout ?? DefaultTimeOut, ct)) {
+                if (!await _semaphore.WaitAsync(timeout ?? DefaultTimeOut, ct).ConfigureAwait(false)) {
                     throw new TimeoutException($"Semaphore Timeout");
                 }
                 return handler;
@@ -144,8 +144,9 @@ namespace CellWars.Threading {
         /// <exception cref="TimeoutException">If the specified time hits and is unable to acquire the lock</exception>
         public ILockHandle Lock(TimeSpan? timeout, CancellationToken ct) {
             if (_handle.Value == null || _handle.Value.IsInvalid) {
-                if (!_semaphore.Wait(timeout ?? DefaultTimeOut, ct))
+                if (!_semaphore.Wait(timeout ?? DefaultTimeOut, ct)) {
                     throw new TimeoutException($"Semaphore Timeout");
+                }
                 return new ThreadSafeHandle(this);
             }
             return EmptyHandler;
