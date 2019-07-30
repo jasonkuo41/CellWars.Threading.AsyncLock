@@ -149,7 +149,8 @@ namespace CellWars.Threading.Tests {
                     }
                 }
 
-                await ForceLock();
+                var task = ForceLock();
+                await Task.Yield();
                 using (await Mutex.LockAsync(ct.Token)) {
                 }
             });

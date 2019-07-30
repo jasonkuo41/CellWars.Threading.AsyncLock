@@ -70,7 +70,7 @@ namespace CellWars.Threading {
         /// <typeparam name="TValue">The fields type</typeparam>
         /// <param name="field">The acquiring field</param>
         /// <param name="value">The operation on to the field</param>
-        public void SetField<TValue>(Func<T, TValue> field, Action<TValue> value) => SetField(field, value, null);
+        public TValue SetField<TValue>(Func<T, TValue> field, Action<TValue> value) => SetField(field, value, null);
 
         /// <summary>
         /// A helper function to write or set a field within a class with thread-safety concerned
@@ -79,7 +79,7 @@ namespace CellWars.Threading {
         /// <param name="field">The acquiring field</param>
         /// <param name="value">The operation on to the field</param>
         /// <param name="span">The timeout to this lock, default value null would fallback using DefaultTimeOut</param>
-        public void SetField<TValue>(Func<T, TValue> field, Action<TValue> value, TimeSpan? span) => SetField(field, value, span, default);
+        public TValue SetField<TValue>(Func<T, TValue> field, Action<TValue> value, TimeSpan? span) => SetField(field, value, span, default);
 
         /// <summary>
         /// A helper function to write or set a field within a class with thread-safety concerned
@@ -97,9 +97,12 @@ namespace CellWars.Threading {
         /// <param name="value">The operation on to the field</param>
         /// <param name="span">The timeout to this lock, default value null would fallback using DefaultTimeOut</param>
         /// <param name="ct">The CancellationToken to cancel waiting</param>
-        public void SetField<TValue>(Func<T, TValue> field, Action<TValue> value, TimeSpan? span, CancellationToken ct) {
-            using (Lock(span, ct))
-                value(field(_holder));
+        public TValue SetField<TValue>(Func<T, TValue> field, Action<TValue> value, TimeSpan? span, CancellationToken ct) {
+            using (Lock(span, ct)) {
+                var original = field(_holder);
+                value(original);
+                return original;
+            }
         }
     }
 }
