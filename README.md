@@ -5,24 +5,7 @@
 
 A high performance and **re-entrant** async lock for C#.
 
-This library originally belongs to a private repository "CellWars" and is now made public, currently only provides `AsyncLock`, which is an async-compatible `lock` in C#.
-
-Here is it's main feature:
-- **Re-entrant**: no dead-lock if re-acquired on different thread, it's just works like your plain old lock
-- **SpinWait in short/sync tasks** : Slighlty slower then your lock, causes no allocation for any Task objects
-- **Get's all the benefit from long running async tasks**: You can now run long async tasks within the lock, making a more efficient way of utilizing your cpu power.
-
-Other details include: 
-- When dealing with sync tasks, it uses `SpinWait` to wait for the lock to be released in shorter tasks, it'll then allocate a Task object to `Wait()` only after SpinWait round is finished and assume the current task is a long running one.
-- When dealing with longer tasks that utilizes async, it then uses a Task object to represent the waiting process, and returns a release handle, for disposing
-- It will detect any sorts of re-entrant happening in the `Task` by simply compare the local value stored within the Task and will return a empty handle for disposing that doesn't allocate any resource, making re-entrant almost no penalty to use.
-
-#### Comparing with other similiar implementation
-- **SemaphoreSlim** : Non re-entrant, but with best performance. However, can easily result in dead lock if not careful. (Is the underlying lock implementation of current AsyncLock.)
-
-- **neosmart/AsyncLock** : Re-entrant with some caveats. Deadlocks if async lock is re-acquired on other thread; it is only re-entrant if the task resumes on the same thread.
-
-- **StephenCleary/AsyncEx** : Non re-entrant; Causes Task object allocation on short tasks like synchronous calls, which dumps a lot of pressure on GC.
+No dead-lock if re-acquired on different thread, it's just works like your plain old lock.
 
 Supports `netstandard 1.3` (.Net Framework 4.6, .Net Core 1.0 and above)
 
@@ -51,26 +34,32 @@ public class ExampleClass {
     }
 }
 ```
-For synchronous function calls that need to acquire the same lock of any other asynchronous functions, please use the synchronous API provided by `AsyncLock`. 
+We highly discourage users to use the synchronized version of the AsyncLock, unless needed in special circumstances.
+It is best to combine both AsyncLock and `lock` together. AsyncLock for async content and lock for synchronize content.
 
-> Note 1 : If your synchronous calls needs to acquire different locks then other asynchronous calls, you should use `lock` instead
-
-> Note 2 : Sychronous locks in current implementation uses SpinWait as quick way of waiting the lock before actually returning a new Task object. This makes quick sychronous calls still performant
-
+For Example :
 ```c#
-public void LockContent() {
-    using (_mutex.Lock()) {
-        // Your work
-    }
+public async Task FooAAsync() {
+    using (await _mutex.LockAsync()) {
+		lock (syncObject) {
+			// Access sychronized content, for example get a state of your current class
+		}
+		// Apply this state to some async functions
+	}
+}
+
+public void FooB() {
+	lock(syncObject) {
+		// Do some synchronized stuff
+	}
 }
 ```
-This garuantees both `LockContentAsnyc` and `LockContent` will only have one thread accessing it simultaneously.
 
 Since the biggest feature of `AsyncLock` is that it behaves like `lock` which is re-entrant, meaning that the code below would not end up in a dead-lock (like `SempahoreSlim.WaitAsync` and other commonly used async lock provided by others).
 ```c#
 public async Task ReentrantLockAsync() {
-    using (await _mutex.Lock()) {
-        using (await _mutex.Lock()) {
+    using (await _mutex.LockAsync()) {
+        using (await _mutex.LockAsync()) {
             // Does not dead lock
         }
     }
